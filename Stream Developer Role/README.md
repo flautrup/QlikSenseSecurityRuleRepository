@@ -1,4 +1,4 @@
-# Strean Developer Role
+# Stream Developer Role
 
 ##Description
 This rule package creates a new role for developers (role_dev). With this role
@@ -13,11 +13,13 @@ In the QMC the developer will have access to
 * Tags  
 
 ##Rules
-|Rule|Description|
+| Rule     | Description |
+|----------|-------------|
 |DevCreate|Grants create rights to role role_dev that need to be assigned to developers|
 |DevRUDP|Grants developers in a group that a stream or data connection has marked with \@DevGroup to read, update, delete and publish if a stream|
 |DevSection|The sections in the QMC that developers in the role role_dev can access|
 
 ##Custom Properties
 |Custom Property|Description|
+|---------------|-----------|
 |\@DevGroup|Custom property on streams and data connections that points out which group a developer need to belong to to be able to work with content of a stream or a data connection|
