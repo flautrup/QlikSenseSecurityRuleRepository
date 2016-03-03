@@ -1,0 +1,73 @@
+{
+  "localpackagelist": [{
+    "packageDescription": "You will be able to restrict access to a sheet through adding a group to the description of the sheet.",
+    "packageName": "Sheet level security",
+    "ruleList": [{
+      "actions": 2,
+      "category": "Security",
+      "comment": "Grants access to sheet if app is marked as having sheet level security and you are member of the group in the sheet description",
+      "createdDate": "2016-03-03T13:24:47.450Z",
+      "customPropertyList": ["SheetLevelSecurity"],
+      "customPropertyObj": [{
+        "choiceValues": ["Yes", "No"],
+        "createdDate": "2016-03-03T13:40:37.233Z",
+        "id": "0bfc905f-058a-4e59-8613-e677eb7fc2f5",
+        "modifiedByUserName": "QTSEL\\flp",
+        "modifiedDate": "2016-03-03T13:40:37.233Z",
+        "name": "SheetLevelSecurity",
+        "objectTypes": ["App"],
+        "privileges": null,
+        "schemaPath": "CustomPropertyDefinition",
+        "valueType": "Text"
+      }],
+      "disabled": false,
+      "id": "23790f85-3d94-432f-9c27-91f0732df4ce",
+      "modifiedByUserName": "QTSEL\\flp",
+      "modifiedDate": "2016-03-03T13:24:47.450Z",
+      "name": "SheetLevelSecurity",
+      "privileges": null,
+      "resourceFilter": "App.Object_*",
+      "rule": "((resource.objectType=\"sheet\" and resource.published =\"true\" and resource.app.@SheetLevelSecurity=\"Yes\" and user.group=resource.description) or (resource.published =\"true\" and resource.objectType!=\"sheet\")) and resource.app.stream.HasPrivilege(\"read\")",
+      "ruleContext": 0,
+      "schemaPath": "SystemRule",
+      "seedId": "00000000-0000-0000-0000-000000000000",
+      "selected": true,
+      "tags": [],
+      "type": "Custom",
+      "version": 0
+    }, {
+      "actions": 2,
+      "category": "Security",
+      "comment": "The user should see the resource if he/she has read access to the stream it is published to",
+      "createdDate": "2016-02-16T12:59:09.245Z",
+      "customPropertyList": ["SheetLevelSecurity"],
+      "customPropertyObj": [{
+        "choiceValues": ["Yes", "No"],
+        "createdDate": "2016-03-03T13:40:37.233Z",
+        "id": "0bfc905f-058a-4e59-8613-e677eb7fc2f5",
+        "modifiedByUserName": "QTSEL\\flp",
+        "modifiedDate": "2016-03-03T13:40:37.233Z",
+        "name": "SheetLevelSecurity",
+        "objectTypes": ["App"],
+        "privileges": null,
+        "schemaPath": "CustomPropertyDefinition",
+        "valueType": "Text"
+      }],
+      "disabled": false,
+      "id": "1a30be49-9076-4b9c-b035-10a62c9b4374",
+      "modifiedByUserName": "QTSEL\\flp",
+      "modifiedDate": "2016-03-03T13:22:36.524Z",
+      "name": "Stream",
+      "privileges": null,
+      "resourceFilter": "App*",
+      "rule": "(resource.resourcetype = \"App\" and resource.stream.HasPrivilege(\"read\")) or ((resource.resourcetype = \"App.Object\" and resource.published =\"true\" and resource.app.@SheetLevelSecurity!=\"Yes\" and resource.objectType != \"app_appscript\") and resource.app.stream.HasPrivilege(\"read\"))",
+      "ruleContext": 0,
+      "schemaPath": "SystemRule",
+      "seedId": "611d73ca-98ad-4bb8-b6c2-7269f3c460e2",
+      "selected": true,
+      "tags": [],
+      "type": "Custom",
+      "version": 2
+    }]
+  }]
+}
